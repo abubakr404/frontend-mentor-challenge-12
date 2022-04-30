@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+:root {
+    --desaturated-red: hsl(0, 36%, 70%);
+    --soft-red: hsl(0, 93%, 68%);
+    --dark-grayish-red: hsl(0, 6%, 24%);
+    --linear-gradient-1: 135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%);
+    --linear-gradient-2: 135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%);
+    --font-family: 'Josefin Sans', sans-serif;
+    --main-BG: var(--linear-gradient-1);
+    --card-BG: var(--white);
+    --main-CR: var(--desaturated-red);
+    --p-CR: var(--desaturated-dark-blue)
+}
+*, :after, :before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+body {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--main-CR);
+    background-image: linear-gradient(var(--main-BG));
+    min-height: 100vh
+}
+body>img {
+    display: none;
+}
+h1.thin-header {
+    font-weight: 300;
+    color: var(--main-CR)
+}
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 11px;
+    color: var(--dark-grayish-red);
+    line-height: 1.05;
+    font-size: 2.5rem
+}
+p {
+    font-size: .875rem;
+    color: var(--p-CR);
+    margin: 18px 0
+}
+.container {
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center
+}
+main.container>img {
+    width: 100%
+}
+.logo {
+    order: -1;
+    padding: 31px 32px 32px;
+    width: 100%;
+    display: flex
+}
+.logo img {
+    width: 100px
+}
+.detail {
+    flex-grow: 1;
+    padding: 31px;
+    margin-top: 33px
+}
+.detail p {
+    margin: 15px 0 35px
+}
+form {
+    position: relative
+}
+form+p,button,input[name="email"] {
+    transition: all .150s ease-in-out
+}
+form+p {
+    overflow: hidden;
+    width: 0%;
+    height: 0%;
+    color: hsl(0, 74%, 74%);
+    padding-left: 25px;
+}
+form.error+p {
+    width: 100%;
+    height: auto;
+}
+form>img {
+    display: none;
+}
+input[name="email"]::placeholder {
+    color: #dacbce
+}
+form.error input[name="email"]+img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 92.5px;
+    transform: translate(50%, -50%);
+}
+input[name="email"] {
+    width: 100%;
+    box-shadow: inset 0 0 0px 1px #dacbce;
+    border: none;
+    border-radius: 30px;
+    padding: 0 25px;
+    height: 50px;
+    background-color: transparent
+}
+form.error input[name="email"]{
+    box-shadow: inset 0 0 0px 1.5px var(--soft-red);
+}
+button {
+    position: absolute;
+    right: 32.5px;
+    top: 50%;
+    transform: translate(50%, -50%);
+    width: 65px;
+    height: 50px;
+    border: none;
+    background: linear-gradient(var(--linear-gradient-2));
+    box-shadow: 0 15px 15px #de99994a;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+button:hover,button:focus,button:active {
+    background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 80%, 86%))
+}
+@media (min-width: 1080px) {
+    body {
+        text-align: start;
+        align-items: stretch;
+        flex-direction: row;
+    }
+    body>img {
+        display: block;
+        width: 42.42vw;
+    }
+    .container {
+        height: auto;
+        width: 48.48vw;
+        background-image: url(images/bg-pattern-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        flex-grow: 1;
+        padding: 0 11rem;
+    }
+    .logo img {
+        width: 150px;
+    }
+    .container>img {
+        display: none;
+    }
+}
